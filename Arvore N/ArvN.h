@@ -17,8 +17,8 @@ public:
     ~arv_n(void);     /* Destrutor: apaga todas as sub-�rvores. */
     
     int ret_val(void);       /* Retorna o valor armazenado na raiz. */
-    arv_n *ret_filho(int i); /* Retorna a sub-�rvore correspondente ao
-                              i-�simo filho ou NULL, caso este n�o exista.
+    arv_n *ret_filho(int i); /* Retorna a sub-árvore correspondente ao
+                              i-ésimo filho ou NULL, caso este não exista.
                               */
     
     arv_n *ret_irmao(); /* Retorna, se houver, o irm�o imediato do n�.
@@ -40,4 +40,8 @@ public:
                                 retorna NULL. */
     
     void mostra(void);  /* Imprime o conte�do da �rvore em pr�-ordem */
+    int grau() const;
+    int altura() const;
+    int filhos() const;
+    int maior_valor() const;
 };

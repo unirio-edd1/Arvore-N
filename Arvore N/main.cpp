@@ -27,18 +27,18 @@ int main(void){
     for (i = 20; i < 23; i++)
         a[4]->insere_filho(a[i]);
 	   
-    cout<<endl<< "Arvore depois das insercoes "<<endl;
+    cout << endl << "Arvore depois das insercoes " << endl;
     
     a[0]->mostra();
     cout<<endl;
     
     for (i=0;(i<10);i++)
         if (a[0]->remove_filho(4))
-            cout<<"Removido o filho de indice "<<4<<" do no "<< 0<<endl;
+            cout << "Removido o filho de indice "<<4<<" do no " << 0 << endl;
         else
-            cout<<"N�o foi possivel remover o filho de indice "<<4<<" do no "<< 0<<endl;
+            cout << "Não foi possivel remover o filho de indice " << 4 << " do no " << 0 << endl;
     
-    cout<<endl<<"Arvore depois das remocoes "<<endl;
+    cout << endl << "Arvore depois das remocoes " << endl;
     
     a[0]->mostra();
     
@@ -76,9 +76,11 @@ int main(void){
     for (i=1; i<30; i++)
         if (a[0]->busca(i))
             cout<<"Valor "<< i <<" presente na arvore."<<endl;
+//    
+//    delete a[0]; /* Obs: todos os elementos que est�o na arvore  
+//                  s�o removidos  */
     
-    delete a[0]; /* Obs: todos os elementos que est�o na arvore  
-                  s�o removidos  */
+    int b = a[0]->maior_valor();
     
     system("PAUSE");                     
     return 0;

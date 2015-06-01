@@ -102,12 +102,49 @@ arv_n * arv_n::busca(int valor){
 }
 
 
-/* Imprime o conte�do da �rvore em pr�-ordem */
+/* Imprime o conteúdo da árvore em pré-ordem */
 void arv_n::mostra(void){
     cout << "(" << val;
     for (arv_n *p = prim;(p != NULL); p = p->prox)
         p->mostra();
     cout<<")";
+}
+
+int arv_n::altura() const{
+    return 0;
+}
+
+int arv_n::grau() const{
+    arv_n *p;
+    int grau = 0;
+    int grauMax = 0;
+    
+    for (p = prim; p!=NULL; p = p->prox)
+        grauMax++;                          // obtém o grau dos filhos da raiz
+    for (p = prim; p!=NULL; p = p->prox) {
+        grau = p->grau();                   // obtém o grau dos filhos dos filhos
+        if (grau > grauMax)
+            grauMax = grau;
+    }
+    return grauMax;
+}
+
+int arv_n::maior_valor() const{
+    int maior = INT_MIN;
+    
+    for (arv_n * filho = prim; filho !=NULL; filho=filho->prim){
+        for (arv_n * irmao = prox; irmao != NULL; irmao=irmao->prox){
+            if (this->val > maior)
+                maior = this->val;
+        }
+    }
+    return maior;
+}
+
+int arv_n::filhos() const{
+    int i = 0;
+    for (arv_n *filho = prim; filho != NULL && filho->prox != NULL; filho = filho->prox, i++){}
+    return i;
 }
 
 
