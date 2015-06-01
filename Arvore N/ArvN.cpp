@@ -111,7 +111,17 @@ void arv_n::mostra(void){
 }
 
 int arv_n::altura() const{
-    return 0;
+    arv_n *p;
+    int altura_arvore = -1;
+    int altura_filho = -1;
+    
+    for (p = prim; p != NULL; p = p->prox) {
+        altura_filho = p->altura();         // calcula a altura de cada filho recursivamente
+        if (altura_filho > altura_arvore)
+            altura_arvore = altura_filho;   // guarda a maior altura dos filhos
+    }
+    
+    return altura_arvore + 1;
 }
 
 int arv_n::grau() const{
